@@ -1,16 +1,16 @@
-﻿using MotoApp.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace MotoApp.Repositories
 {
-    public class GenericRepository<T> where T : IEntity
+    using MotoApp.Entities;
+
+    class GenericRepository<T, TKey> 
+        where T : IEntity
+       
     {
-        private readonly List<T> _item = new();
+        public TKey? Key { get; set; }
+
+        protected readonly List<T> _item = new();
 
         public void Add(T item)
         {
