@@ -4,8 +4,8 @@ namespace MotoApp.Repositories
 {
     using MotoApp.Entities;
 
-    class GenericRepository<T, TKey> 
-        where T : IEntity
+    class GenericRepository<TEntity, TKey> 
+        where TEntity : IEntity
        
     {
         public TKey? Key { get; set; }
