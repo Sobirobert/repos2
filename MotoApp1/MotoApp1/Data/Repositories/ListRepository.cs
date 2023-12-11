@@ -1,10 +1,10 @@
-﻿namespace MotoApp.Repositories
+﻿namespace MotoApp.Data.Repositories
 {
-    using MotoApp.Entities;
+    using MotoApp.Data.Entities;
 
-    class ListRepository<T> 
+    public class ListRepository<T> : IRepository<T>
         where T : class, IEntity, new()
-           
+
     {
         private readonly List<T> _items = new();
 
@@ -13,7 +13,7 @@
             return _items.ToList();
         }
 
-        public T GetById(int id) 
+        public T GetById(int id)
         {
             return _items.Single(item => item.Id == id);
         }
